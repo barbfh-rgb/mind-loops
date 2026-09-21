@@ -101,6 +101,16 @@
   .crisis a{font-weight:600;text-decoration:none;font-size:17px}
   .crisis .who{display:block;color:var(--muted);font-size:14px}
   .disclaimer{margin:18px 0 0;color:var(--muted);font-size:14px}
+  details.howto{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:14px 16px;margin-bottom:10px;
+  }
+  details.howto summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none}
+  details.howto summary::-webkit-details-marker{display:none}
+  details.howto summary:after{content:" +";color:var(--accent)}
+  details.howto[open] summary:after{content:" \2212";color:var(--accent)}
+  details.howto ul{margin-top:12px}
+  details.howto .note{margin-bottom:0}
   .hidden{display:none}
 </style>
 </head>
@@ -118,6 +128,27 @@
   <p class="note">A Mind Loop is a short sequence of focused affirmations, repeated with gentle pacing. Repetition helps your mind absorb the ideas so they feel easier and more natural through the day.</p>
   <h4>Headphones</h4>
   <p class="note">Headphones make it easier to let the words settle, though they are not essential.</p>
+  <h4>Keep this on your phone</h4>
+  <details class="howto">
+    <summary>iPhone and iPad</summary>
+    <ul>
+      <li>Open this page in Safari</li>
+      <li>Tap the Share button, the box with an arrow pointing up at the bottom of the screen</li>
+      <li>Scroll down and tap "Add to Home Screen"</li>
+      <li>Tap "Add"</li>
+    </ul>
+    <p class="note">If you do not see "Add to Home Screen", you are in a browser that opened inside another app. Tap the three dots or the Safari icon, choose Open in Safari, then start again.</p>
+  </details>
+  <details class="howto">
+    <summary>Android</summary>
+    <ul>
+      <li>Open this page in Chrome</li>
+      <li>Tap the three dots menu, top right</li>
+      <li>Tap "Add to Home screen", or "Install app" if that is what yours says</li>
+      <li>Tap "Add" or "Install"</li>
+    </ul>
+    <p class="note">Chrome often shows a banner at the bottom of the screen saying "Add to Home screen". You can tap that instead.</p>
+  </details>
 </main>
 
 <main id="track" class="track hidden"></main>
