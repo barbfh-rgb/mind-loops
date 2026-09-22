@@ -1,6 +1,3 @@
-Then copy it from here instead.
-
-Open sw.js in the repository, click the pencil, select everything that is there and delete it, then paste this in and commit.
 
 ```
 const SHELL = "mindloops-shell-v3";
