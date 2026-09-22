@@ -1,4 +1,9 @@
-const SHELL = "mindloops-shell-v1";
+Then copy it from here instead.
+
+Open sw.js in the repository, click the pencil, select everything that is there and delete it, then paste this in and commit.
+
+```
+const SHELL = "mindloops-shell-v3";
 const AUDIO = "mindloops-audio-v1";
 const SHELL_FILES = ["./", "./index.html", "./manifest.json", "./icon-192.png", "./icon-512.png"];
 
@@ -28,6 +33,13 @@ self.addEventListener("fetch", e => {
   }
 
   e.respondWith(
-    caches.match(req).then(hit => hit || fetch(req).catch(() => caches.match("./index.html")))
+    fetch(req)
+      .then(res => {
+        const copy = res.clone();
+        caches.open(SHELL).then(c => c.put(req, copy)).catch(() => {});
+        return res;
+      })
+      .catch(() => caches.match(req).then(hit => hit || caches.match("./index.html")))
   );
 });
+```
