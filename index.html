@@ -30,7 +30,7 @@
     font-size:17px;
     line-height:1.55;
     -webkit-font-smoothing:antialiased;
-    padding:0 16px calc(40px + env(safe-area-inset-bottom));
+    padding:0 24px calc(40px + env(safe-area-inset-bottom));
     max-width:640px;
     margin:0 auto;
   }
@@ -115,6 +115,13 @@
   .qr img{display:block;width:100%;height:auto}
   .qr-url{text-align:center;margin-top:10px;letter-spacing:0.02em}
   .hidden{display:none}
+  /* Gold frame */
+  html:after{
+    content:"";position:fixed;pointer-events:none;z-index:1000;
+    top:calc(6px + env(safe-area-inset-top));right:calc(6px + env(safe-area-inset-right));
+    bottom:calc(6px + env(safe-area-inset-bottom));left:calc(6px + env(safe-area-inset-left));
+    border:2px solid rgba(212,175,95,0.75);border-radius:18px;
+  }
 </style>
 </head>
 <body>
@@ -357,7 +364,7 @@ async function saveTrack(url,btn){
   try{
     const c=await caches.open(AUDIO_CACHE);
     await c.add(url);
-    btn.textContent="Saved to this phone";
+    btn.textContent="Saved to this device";
   }catch(e){
     btn.textContent="Could not save. It will still play online.";
   }
@@ -372,7 +379,7 @@ function openTrack(t){
     '<h2>'+esc(t.title)+'</h2>'+
     '<p class="lede">'+esc(t.lede)+'</p>'+
     '<div class="player"><audio controls preload="none" src="'+url+'"></audio></div>'+
-    '<button class="save" id="save">Save to this phone</button>'+
+    '<button class="save" id="save">Save to this device</button>'+
     (t.safety?'<p class="note" style="margin-top:-16px;margin-bottom:24px">'+esc(t.safety)+'</p>':'')+
     '<div class="meta">'+
       '<div><span>Focus:</span> '+esc(t.focus)+'</div>'+
@@ -402,7 +409,7 @@ function openTrack(t){
   window.scrollTo(0,0);
   document.getElementById("back").addEventListener("click",closeTrack);
   const btn=document.getElementById("save");
-  isSaved(url).then(s=>{ if(s){btn.textContent="Saved to this phone";btn.disabled=true;} });
+  isSaved(url).then(s=>{ if(s){btn.textContent="Saved to this device";btn.disabled=true;} });
   btn.addEventListener("click",()=>saveTrack(url,btn));
 }
 
