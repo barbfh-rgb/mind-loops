@@ -20,6 +20,7 @@
     --muted:#A2AAB8;
     --accent:#61E0C4;
     --accent-ink:#06231D;
+    --gold:#A3884D;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
@@ -41,7 +42,7 @@
   /* Home */
   .brand{margin-bottom:6px}
   .brand h1{font-size:40px;letter-spacing:-0.02em}
-  .brand p.with{color:var(--accent);font-size:19px;margin:4px 0 0;font-weight:600}
+  .brand p.with{color:var(--gold);font-size:19px;margin:4px 0 0;font-weight:600}
   .intro{color:var(--muted);margin:18px 0 26px;font-size:16px}
   .tiles{display:grid;gap:12px;margin-bottom:34px}
   .tile{
@@ -120,7 +121,7 @@
     content:"";position:fixed;pointer-events:none;z-index:1000;
     top:calc(6px + env(safe-area-inset-top));right:calc(6px + env(safe-area-inset-right));
     bottom:calc(6px + env(safe-area-inset-bottom));left:calc(6px + env(safe-area-inset-left));
-    border:2px solid rgba(212,175,95,0.75);border-radius:18px;
+    border:4px solid var(--gold);border-radius:18px;
   }
 </style>
 </head>
